@@ -1,0 +1,286 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Common Button Styles */
+button {
+  background-color: #5f47c7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #755ae1;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.export-btn {
+  margin-left: auto;
+  background-color: transparent;
+  border: 2px solid #5f47c7;
+  color: #5f47c7;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.export-btn:hover {
+  background-color: #5f47c7;
+  color: #fff;
+}
+
+/* Container Layout */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  background: rgba(95, 71, 199, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.play-pause-btn {
+  background-color: #5f47c7;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.play-pause-btn:hover {
+  background-color: #755ae1;
+}
+
+/* Toggle Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2b2b2b;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #5f47c7;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.control-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Time Display Styles */
+.time-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.time-label {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.time-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Subtitle Display Styles */
+.subtitle-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  min-height: 100px;
+  border: 2px solid #5f47c7;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.subtitle {
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  max-width: 100%;
+  padding: 10px;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.subtitle.animate {
+  animation: bounce 0.5s ease-in-out infinite;
+  animation-fill-mode: forwards;
+  font-style: normal;
+  color: #fff;
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+/* Timeline Styles */
+.timeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a1a;
+  width: 90%;
+  height: 50px;
+  border-radius: 8px;
+  overflow: visible;
+  position: relative;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.timeline-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #755ae1 0%, #3b2d94 100%);
+  position: absolute;
+  left: 0;
+  transition: width 0.1s linear;
+  z-index: 1;
+}
+
+.timeline-marker {
+  height: 120%;
+  width: 4px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  transition: left 0.1s linear;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.timeline:hover .timeline-marker {
+  background-color: #755ae1;
+  box-shadow: 0 0 15px rgba(117, 90, 225, 0.5);
+}
+
+.time-indicators {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+  font-size: 12px;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+  font-weight: bold;
+  mix-blend-mode: difference;
+}
+
+/* Animation Keyframes */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    font-style: normal;
+  }
+  25% {
+    transform: scale(1.1);
+    font-style: italic;
+  }
+  50% {
+    transform: scale(1.15);
+    font-style: italic;
+  }
+  75% {
+    transform: scale(1.1);
+    font-style: italic;
+  }
+  100% {
+    transform: scale(1);
+    font-style: normal;
+  }
+}
